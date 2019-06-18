@@ -3,9 +3,10 @@ package cn.imnu.controller;
 import cn.imnu.bean.Course;
 import cn.imnu.dao.CourseDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
+@Controller
 public class CourseController {
     @Autowired
     private CourseDAO courseDAO;
@@ -14,9 +15,10 @@ public class CourseController {
      */
     @PostMapping(value = "/add")
     public String add(Course course){
-        CourseDAO.add(course);
+        courseDAO.add(course);
         return "redirect:/getAll";
     }
+
 
     /**
      * 查询全部课程
